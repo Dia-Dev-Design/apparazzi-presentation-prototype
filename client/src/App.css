@@ -259,3 +259,32 @@ body {
   display: block;
   margin: auto;
 }
+
+.slider{
+  display: flex;
+  justify-content: center;
+}
+
+.slider > input{
+  width: 30%;
+
+}
+
+.slider > input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: coral;
+}
+
+.slider >input[type=range]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: coral;
+}
+
+.slider > input[type=range]::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: coral;
+}

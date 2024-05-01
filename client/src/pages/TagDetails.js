@@ -5,7 +5,7 @@ import axios from "axios";
 import { baseUrl } from "../authService/baseUrl";
 import Photo from "../components/Photo";
 import L from "leaflet";
-import { MapContainer } from "react-leaflet";
+import { MapContainer, useMap } from "react-leaflet";
 import { TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Link } from "react-router-dom";
@@ -20,6 +20,8 @@ const TagDetails = (props) => {
   });
 
   const [photos, setPhotos] = useState([]);
+  const [photoIndex, setPhotoIndex] = useState(0)
+  const [points, setPoints] = useState([])
   const [map, setMap] = useState({
     lat: 25.80051750601982,
     lng: -80.19831072619859,
@@ -36,16 +38,50 @@ const TagDetails = (props) => {
   const fetchPhotos = () => {
     axios
       .get(baseUrl + `/photos/${params.id}/tag`)
-      .then((res) => {
+      .then((res) => {        
         setPhotos(res.data.photos);
       })
       .catch((err) => console.log(err));
   };
 
+const handleSliderChange = (e) => {
+  console.log(+e.target.value);
+  setPhotoIndex(+e.target.value)
+}
+
+const getPoints = (photos) => {
+  const points = []
+  photos.forEach((spot, index) => {
+    console.log(index,spot);
+    points.push([convertGPS(spot.latitude),convertGPS(spot.longitude)]);
+  })
+  setPoints(points)
+}
+
+const ChangeView = ({ center, zoom }) => {
+  const map = useMap();
+  map.setView(center, zoom);
+}
+
+useEffect(() => {
+  if(photos.length){
+    getPoints(photos)
+  }
+}, [photos])
+
+
   return (
     <div>
       <p>This is TagDetails</p>
-
+      <div className="slider">
+        <input
+          type="range"
+          min="0"
+          max={`${photos.length-1}`}
+          value={photoIndex}
+          onChange={handleSliderChange}
+        />
+      </div>
       <h2>#{params.id}</h2>
 
       <div id="mapid">
@@ -61,34 +97,28 @@ const TagDetails = (props) => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
 
-          {photos.map((spot) => {
-            const point = [
-              convertGPS(spot.latitude),
-              convertGPS(spot.longitude),
-            ];
-
-            return (
-              point[0] && (
-                <Marker icon={myIcon} position={point} key={spot["_id"]}>
+             {points[photoIndex] && photos[photoIndex] && 
+             <ChangeView center={points[photoIndex]} zoom={map.zoom} />}
+             {points[photoIndex] && photos[photoIndex] && 
+             <Marker icon={myIcon} position={points[photoIndex]} key={photos[photoIndex]["_id"]}>
                   <Popup>
                     <span>
-                      <TheseTags photo={spot} />
+                      <TheseTags photo={photos[photoIndex]} />
                     </span>
-                    <br />
+                    {/* <br /> */}
                     <span>
-                      <Link to={`/${spot._id}/details`}>Details</Link>
+                      <Link to={`/${photos[photoIndex]._id}/details`}>Details</Link>
                     </span>
-                    <br />
+                    {/* <br /> */}
                     <img
-                      src={spot.imageUrl}
+                      src={photos[photoIndex].imageUrl}
                       alt="testimage"
                       className="previewImage"
                     />
                   </Popup>
-                </Marker>
-              )
-            );
-          })}
+                </Marker>}
+
+          
         </MapContainer>
       </div>
 
