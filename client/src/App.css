@@ -265,26 +265,30 @@ body {
   justify-content: center;
 }
 
-.slider > input{
+.slider > input[type=range]{
   width: 30%;
-
+  height: 5px;
 }
 
+/* Webkit browsers like Chrome, Safari */
 .slider > input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 20px;
+  width: 10px;
   height: 20px;
   background: coral;
 }
 
+/* Firefox */
 .slider >input[type=range]::-moz-range-thumb {
-  width: 20px;
+  width: 10px;
   height: 20px;
   background: coral;
 }
 
+
+/* IE */
 .slider > input[type=range]::-ms-thumb {
-  width: 20px;
+  width: 10px;
   height: 20px;
   background: coral;
 }

@@ -74,9 +74,11 @@ useEffect(() => {
     <div>
       <p>This is TagDetails</p>
       <div className="slider">
+        <label htmlFor="PhotoLocationTimeSlider" >Photo Location Time Slider</label>
         <input
           type="range"
           min="0"
+          name= "PhotoLocationTimeSlider"
           max={`${photos.length-1}`}
           value={photoIndex}
           onChange={handleSliderChange}
