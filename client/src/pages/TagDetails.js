@@ -38,21 +38,30 @@ const TagDetails = (props) => {
   const fetchPhotos = () => {
     axios
       .get(baseUrl + `/photos/${params.id}/tag`)
-      .then((res) => {        
-        setPhotos(res.data.photos);
+      .then((res) => {
+        const {photos} = res.data
+        photos.sort((a, b) => {
+          const regex = /(\d{4}):(\d{2}):(\d{2})/;
+          const format = "$1-$2-$3";
+          return (
+            new Date(b.photographedDate.replace(regex, format)) -
+            new Date(a.photographedDate.replace(regex, format))
+          );
+        });
+        setPhotos(photos);
       })
       .catch((err) => console.log(err));
   };
 
 const handleSliderChange = (e) => {
-  console.log(+e.target.value);
+  // console.log(+e.target.value);
   setPhotoIndex(+e.target.value)
 }
 
 const getPoints = (photos) => {
   const points = []
   photos.forEach((spot, index) => {
-    console.log(index,spot);
+    // console.log(index,spot);
     points.push([convertGPS(spot.latitude),convertGPS(spot.longitude)]);
   })
   setPoints(points)
