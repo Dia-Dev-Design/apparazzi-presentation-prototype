@@ -17,7 +17,7 @@ const Tags = () => {
   return (
     <div className="homeLanding">
       <div className="homeContainer">
-        <h2>Tag Search</h2>
+        <h2>Tag Search - Enter celebrity</h2>
         <br />
         <form>
           <label>Search #</label>

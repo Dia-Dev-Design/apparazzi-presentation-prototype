@@ -46,7 +46,7 @@ const TagDetails = (props) => {
     <div>
       <p>This is TagDetails</p>
 
-      <h2>#{params.id}</h2>
+      <h2> Showing all photos of: #{params.id}</h2>
 
       <div id="mapid">
         <MapContainer
