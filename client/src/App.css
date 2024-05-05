@@ -260,67 +260,85 @@ body {
   margin: auto;
 }
 
-.slider{
+.slider-container{
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+}
+
+.slider-container .slider-label-input-container{
   display: flex;
   flex-direction: column;
+  width: 30%;
+  text-align: center;
+  /* margin-left: 20vw; */
+}
+
+.slider-label-input-container{
+  margin: 0 3vw 0 3vw;
+}
+
+/* .slider-container .slider-input{
+  width: 100%;
+} */
+/* .slider{
+  display: flex;
   align-items: center;
-}
+  flex-direction: column;
+} */
 
-.slider > label{
+/* .slider label{
   margin-bottom: 10px
-}
+} */
 
-.slider > input[type=range]{
+/* .slider input[type=range]{
   width: 30%;
   height: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;  
   appearance: none;
   transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
-}
+} */
 /* Webkit, Blink browsers (Chrome, Opera) */
-.slider > input[type=range]::-webkit-slider-thumb {
-  appearance: none; /* Override the default appearance for Webkit/Blink */
-  width: 10px; /* Important to override potential conflicting styles */
-  height: 20px; /* Important to override potential conflicting styles */
+/* .slider input[type=range]::-webkit-slider-thumb {
+  appearance: none; Override the default appearance for Webkit/Blink
+  width: 10px; Important to override potential conflicting styles
   border-radius: 5px;
   border: 1px solid;
   border-color: grey;
-  background: white; /* Important to override potential conflicting styles */
-  /* box-shadow: 0px 0px 0px 0px grey; */
+  background: white; Important to override potential conflicting styles
   transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
-}
+} */
 /* Firefox */
-.slider > input[type=range]::-moz-range-thumb {
-  width: 10px; /* Important to override potential conflicting styles */
-  height: 20px; /* Important to override potential conflicting styles */
+/* .slider input[type=range]::-moz-range-thumb {
+  width: 10px; Important to override potential conflicting styles
+  height: 20px; Important to override potential conflicting styles
   border-color: grey;
-  background: white; /* Important to override potential conflicting styles */
-  /* box-shadow: 0px 0px 0px 0px grey; */
+  background: white; Important to override potential conflicting styles
   transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
-}
+} */
 
-.slider > input[type=range]:hover,
-.slider > input[type=range]:hover::-webkit-slider-thumb,
-.slider > input[type=range]:hover::-moz-range-thumb {
+/* .slider input[type=range]:hover,
+.slider input[type=range]:hover::-webkit-slider-thumb,
+.slider input[type=range]:hover::-moz-range-thumb {
 box-shadow: 0px 0px 5px 0px grey;
 }
-.slider > input[type=range]:hover {
+.slider input[type=range]:hover {
   background-color: #d3d3fd;
 }
 
-.slider > input[type=range]:hover::-webkit-slider-thumb, 
-.slider > input[type=range]:hover::-moz-range-thumb{
+.slider input[type=range]:hover::-webkit-slider-thumb, 
+.slider input[type=range]:hover::-moz-range-thumb{
   background-color: #7f7fff;
-}
+} */
 
 
 
 /* IE */
-.slider > input[type=range]::-ms-thumb {
+/* .slider input[type=range]::-ms-thumb {
   appearance: none;
-  width: 10px; /* Important to override potential conflicting styles */
-  height: 20px; /* Important to override potential conflicting styles */
-  background: coral; /* Important to override potential conflicting styles */
+  width: 10px; Important to override potential conflicting styles
+  height: 20px; Important to override potential conflicting styles
+  background: coral; Important to override potential conflicting styles
 }
-
+ */
