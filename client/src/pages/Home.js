@@ -18,6 +18,27 @@ const Home = () => {
   return (
     <div className="homeLanding">
       <div className="homeContainer">
+
+        <div className="searchInfo">
+          <div>
+            <p>Search</p>
+            <form className="searchBar1">
+              <button className="searchBarButton">🔍</button>
+              <input className="searchBarInput" placeholder="Who are you looking for?" />
+            </form>
+          </div>
+
+          <div>
+            <p>Location</p>
+            <form className="searchBar2">
+              <button className="searchBarButton">🔍</button>
+              <input className="searchBarInput" placeholder="City or zip code" />
+            </form>
+          </div>
+        </div>
+
+        <br/>
+        
         <h1 className="homeText">Welcome to Apparazzi!</h1>
         <img className="homeIcon" src={AppIcon} alt="apparazziIcon" />
         <h2 className="homeText">Where anyone can be a Paparazzi!</h2>

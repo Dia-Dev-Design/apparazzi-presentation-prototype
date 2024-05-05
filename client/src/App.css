@@ -84,16 +84,17 @@ body {
   margin-top: 5px;
 }
 
-.nav-items {
+/* .nav-items {
   height: 22px;
   position: relative;
-}
+} */
 
 .icon {
   height: 100%;
   cursor: pointer;
   margin: 0 10px;
   display: inline-block;
+  text-decoration: none; /* New */
 }
 
 .user-profile {
@@ -210,10 +211,52 @@ body {
   margin: 0 33%;
 }
 
-.navIconContainer {
+/* .navIconContainer {
   height: 50px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+} */
+
+.navIconContainer {
+  height: 40px;
+  display: flex;
+}
+.navIconLink {
+  align-items: right;
+  text-decoration: none;
+}
+.navButton {
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 25%;
+  align-items: center;
+}
+.submitButton {
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 50%;
+  align-items: center;
+}
+.navButton Link {
+  color: white;
+}
+.nav-items {
+  height: 30px;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
   align-items: center;
 }
 
@@ -258,4 +301,43 @@ body {
   width: 55vw;
   display: block;
   margin: auto;
+}
+
+.searchInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.searchBar1 {
+  border: 1px solid grey;
+  border-radius: 75px;
+  padding: 8px 10px;
+  display: flex;
+  gap: 5px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.searchBar2 {
+  border: 1px solid grey;
+  border-radius: 75px;
+  padding: 8px 10px;
+  display: flex;
+  gap: 5px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.searchBarButton {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+.searchBarInput {
+  border: none;
+  outline: none;
+  width: 100%;
 }

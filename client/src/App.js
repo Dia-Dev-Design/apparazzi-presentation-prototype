@@ -16,7 +16,7 @@ import TagDetails from "./pages/TagDetails";
 import DeleteProfile from "./pages/DeleteProfile";
 import Contributor from "./pages/Contributor";
 
-import AppIcon from "./ApparaazziIcon.png";
+// import AppIcon from "./ApparaazziIcon.png";
 
 function App() {
   const navigate = useNavigate();
@@ -32,13 +32,20 @@ function App() {
     <div>
       <div className="navbar">
         <header className="nav-wrapper">
-          <div className="navIconContainer">
+          {/* <div className="navIconContainer">
             <Link to="/" className="navIconImage">
               <img className="navIcon" src={AppIcon} alt="appIcon" />
             </Link>
 
             <h1 className="navHeadline">Apparazzi!</h1>
+          </div> */}
+
+          <div className="navIconContainer">
+            <Link to="/" className="navIconLink">
+              <h1 className="navHeadline">APPARAZZI!</h1>
+            </Link>
           </div>
+
           {token ? (
             <nav className="nav-items">
               <Link to="/" className="icon">Home</Link>
@@ -50,9 +57,14 @@ function App() {
             </nav>
           ) : (
             <nav className="nav-items">
-              <Link to="/" className="icon">Home</Link>
+              {/* <Link to="/" className="icon">Home</Link>
               <Link to="/signup" className="icon">Sign Up</Link>
-              <Link to="/login" className="icon">Log In</Link>
+              <Link to="/login" className="icon">Log In</Link> */}
+              <Link to="/" className="icon">Home</Link>
+              <Link to="/inventory" className="icon">Inventory</Link>
+              <Link to="/about" className="icon">About</Link>
+              <button className="navButton"><Link to="/login">Log In</Link></button>
+              <button className="navButton"><Link to="/signup">Sign Up</Link></button>
             </nav>
           )}
         </header>

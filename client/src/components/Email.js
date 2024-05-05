@@ -1,16 +1,17 @@
 import React from "react";  
 
-const Email = (props) => {
+const ConfirmPassword = (props) => {
 
     return (
 
         <div>
-            <label>Email</label>
-            <input name='email' onChange={(e)=>props.setEmail(e.target.value)} value={props.email}/>
+            <label>Confirm Password</label>
+            <br />
+            <input type="password" name='confirmPassword' onChange={(e)=>props.setConfirmPassword(e.target.value)} value={props.confirmPassword} placeholder="Password"/>
         </div>
 
     )
 
 }
 
-export default Email
+export default ConfirmPassword
