@@ -18,7 +18,8 @@ const Home = () => {
   return (
     <div className="homeLanding">
       <div className="homeContainer">
-        <h1 className="homeText">Welcome to Apparazzi!</h1>
+        <h1 className="text-6xl font-bold underline">Welcome to Apparazzi!</h1>
+        {/* className="text-6xl ..." on h1 element example to play around with Tailwind  CSS */}
         <img className="homeIcon" src={AppIcon} alt="apparazziIcon" />
         <h2 className="homeText">Where anyone can be a Paparazzi!</h2>
       </div>
