@@ -38,7 +38,6 @@ const SignUp = () => {
         username: username,
         password: password,
         email: email,
-        phoneNumber: phoneNumber,
       })
         .then((results) => {
           localStorage.setItem("authToken", results.data.token);
