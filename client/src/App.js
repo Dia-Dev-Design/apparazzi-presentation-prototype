@@ -88,10 +88,10 @@ function App() {
                 <img className="navbarIcon" src={SubmitIcon} alt="SubmitIcon" />
               </Link>
               <Link to="/profile" className="icon">
-                <img className="navbarIcon" src={UserIcon} alt="UserIcon" />
+                <img className="navbarIcon1" src={UserIcon} alt="UserIcon" />
               </Link>
               <Link to="/notifications" className="icon">
-                <img className="navbarIcon" src={NotificationIcon} alt="NotificationIcon" />
+                <img className="navbarIcon2" src={NotificationIcon} alt="NotificationIcon" />
               </Link>
               <button onClick={logout} className="navButton">Logout</button>
             </nav>

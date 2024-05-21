@@ -65,7 +65,7 @@ body {
   border-bottom: 1px solid #dfdfdf;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 5px 0;
   z-index: 999;
@@ -80,6 +80,7 @@ body {
 }
 
 .nav-items {
+  width: 60%;
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -95,7 +96,8 @@ body {
   display: none;
   cursor: pointer;
   font-size: 30px;
-  margin-right: 10px;
+  margin-left: 100px;
+  padding-right: 80px;
 }
 
 /* .navbar {
@@ -251,7 +253,19 @@ body {
 }
 
 .navbarIcon {
-  width: 15%;
+  width: 20%;
+  height: 30%;
+  margin-top: 5%;
+}
+.navbarIcon1 {
+  width: 50%;
+  height: 60%;
+  margin-top: 5%;
+}
+.navbarIcon2 {
+  width: 60%;
+  height: 70%;
+  margin-top: 5%;
 }
 
 .navIconImage {
@@ -270,6 +284,8 @@ body {
 .navIconContainer {
   height: 40px;
   display: flex;
+  align-items: center;
+  padding-right: 60px;
 }
 .navIconLink {
   align-items: right;
@@ -434,6 +450,7 @@ body {
   .nav-wrapper {
     width: 100%;
     flex-direction: row;
+    justify-content: space-between;
   }
 
   /* .nav-items {
@@ -473,8 +490,10 @@ body {
     border-top: 1px solid #dfdfdf;
   }
 
-  .navbarIcon {
-    width: 5%;
+  .navbarIcon,
+  .navbarIcon1,
+  .navbarIcon2 {
+    width: 7%;
   }
 
   .nav-items.show {
