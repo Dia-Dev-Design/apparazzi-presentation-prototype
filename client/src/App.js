@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -15,8 +14,10 @@ import SubmitPhoto from "./pages/SubmitPhoto";
 import TagDetails from "./pages/TagDetails";
 import DeleteProfile from "./pages/DeleteProfile";
 import Contributor from "./pages/Contributor";
-
-import AppIcon from "./ApparaazziIcon.png";
+import HomeButtonIcon from './apparazzihomebutton.png';
+import AppIcon from "./ApparazziIcon.png";
+import SubmitPhotoButton from "./apparazziSubmitPhotoButton.png";
+import ProfileButton from "./ApparazziProfileButton.png";
 
 function App() {
   const navigate = useNavigate();
@@ -41,11 +42,17 @@ function App() {
           </div>
           {token ? (
             <nav className="nav-items">
-              <Link to="/" className="icon">Home</Link>
+              <Link to="/" className="icon">
+                <img className="HomeButtonIcon" src={HomeButtonIcon}></img></Link>
+              {/*<Link to="">About us</Link>*/}
+              {/*<Link to="">Inventory*/}
+              {/*<Link to="">Notifications*/}
               <Link to="/allPhotos" className="icon">All Photos</Link>
-              <Link to="/tags" className="icon">Tags</Link>
-              <Link to="/submit-photo" className="icon">Submit Photo</Link>
-              <Link to="/profile" className="icon">Profile</Link>
+              <Link to="/tags" type="submit" className="icon">Search</Link>
+              <Link to="/submit-photo" className="icon">
+                  <img className="SubmitPhotoButton" src={SubmitPhotoButton}></img></Link>
+              <Link to="/profile" className="icon">
+                  <img className="ProfileButtonImage" src={ProfileButton}></img></Link>
               <button onClick={logout} className="icon">Logout</button>
             </nav>
           ) : (

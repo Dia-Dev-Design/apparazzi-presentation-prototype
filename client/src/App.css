@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-
+@import url("../node_modules/@fontsource/bebas-neue/index.css");
 img {
   display: block;
   margin: auto;
@@ -51,7 +51,7 @@ body {
   width: 100%;
   background: #fafafa;
   position: relative;
-  font-family: "roboto", sans-serif;
+  font-family: "Bebas Neue", "roboto", sans-serif;
   padding-top: 50px;
 }
 
@@ -192,10 +192,11 @@ body {
   margin: auto auto auto auto;
 }
 
-.homeIcon {
+/*.homeIcon {
   height: 60vh;
   margin: auto;
 }
+*/
 
 .homeText {
   margin: auto;
@@ -204,9 +205,19 @@ body {
 
 .navIcon {
   height: 90%;
-  margin-top: 5%;
+  margin-top: 2.5px;
+  border-radius: 50%;
+  margin-left: -100px;
 }
-
+.SubmitPhotoButton{
+  height: 30px;
+}
+.ProfileButtonImage{
+  height: 30px;
+}
+.HomeButtonIcon{
+  height: 30px;
+}
 .navIconImage {
   height: 100%;
   margin: 0 33%;
@@ -220,7 +231,9 @@ body {
 }
 
 .navHeadline {
-  margin-right: -50%;
+  margin-left: -55px;
+  font-size: 25px;
+  font-family: Bebas Neue;
 }
 
 .previewImage {
@@ -261,3 +274,4 @@ body {
   display: block;
   margin: auto;
 }
+
