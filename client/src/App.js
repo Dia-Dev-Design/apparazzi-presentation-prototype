@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
@@ -21,6 +21,7 @@ import ProfileButton from "./ApparazziProfileButton.png";
 
 function App() {
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
 
   let token = localStorage.getItem("authToken");
 
@@ -28,6 +29,11 @@ function App() {
     localStorage.clear();
     navigate("/");
   }
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/search?query=${searchQuery}`);
+  };
 
   return (
     <div>
@@ -42,19 +48,22 @@ function App() {
           </div>
           {token ? (
             <nav className="nav-items">
-              <Link to="/" className="icon">
-                <img className="HomeButtonIcon" src={HomeButtonIcon}></img></Link>
-              {/*<Link to="">About us</Link>*/}
-              {/*<Link to="">Inventory*/}
-              {/*<Link to="">Notifications*/}
+              {/*<Link to="/">About us</Link>
+              <Link to="/">Inventory</Link>
+              <Link to="/">Notifications</Link>*/}
               <Link to="/allPhotos" className="icon">All Photos</Link>
-              <Link to="/tags" type="submit" className="icon">Search</Link>
               <Link to="/submit-photo" className="icon">
-                  <img className="SubmitPhotoButton" src={SubmitPhotoButton}></img></Link>
+                  <img className="SubmitPhotoButton" src={SubmitPhotoButton} alt="Submit Photo" />
+              </Link>
               <Link to="/profile" className="icon">
-                  <img className="ProfileButtonImage" src={ProfileButton}></img></Link>
-              <button onClick={logout} className="icon">Logout</button>
+                  <img className="ProfileButtonImage" src={ProfileButton} alt="Profile" />
+              </Link>
+              <Link to="/" className="icon">
+                <img className="HomeButtonIcon" src={HomeButtonIcon} alt="Home" />
+              </Link>
+              <button onClick={logout} className="logoutbutton">Logout</button>
             </nav>
+            
           ) : (
             <nav className="nav-items">
               <Link to="/" className="icon">Home</Link>

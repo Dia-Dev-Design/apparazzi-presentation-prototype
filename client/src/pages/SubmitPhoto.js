@@ -14,14 +14,17 @@ const SubmitPhoto = () => {
     id: "",
   });
 
+  const [imagePreviewUrl, setImagePreviewUrl] = React.useState("");
+
   let navigate = useNavigate();
 
   const handleFileUpload = (e) => {
+    const file = e.target.files[0];
     const uploadData = new FormData();
 
-    uploadData.append("imageUrl", e.target.files[0]);
+    uploadData.append("imageUrl", file);
 
-    console.log("Uploading file ===>", e.target.files)
+    console.log("Uploading file ===>", e.target.files);
 
     uploadNewPhoto(uploadData)
       .then((response) => {
@@ -29,6 +32,12 @@ const SubmitPhoto = () => {
         setPhotoId({ id: response.newlyCreatedPhotoFromDB._id });
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImagePreviewUrl(reader.result);
+    };
+    reader.readAsDataURL(file);
   };
 
   function update(photo) {
@@ -36,7 +45,7 @@ const SubmitPhoto = () => {
       description: photo.description,
       tags: photo.tags.replace(/\s/g, "").toLowerCase().split("#"),
     })
-      .then(navigate("/profile"))
+      .then(() => navigate("/profile"))
       .catch((error) => {
         console.error("There was an error!", error);
       });
@@ -54,6 +63,7 @@ const SubmitPhoto = () => {
       tags: "",
       imageUrl: "",
     });
+    setImagePreviewUrl("");
   };
 
   return (
@@ -62,25 +72,29 @@ const SubmitPhoto = () => {
         <form>
           <label>New Photo</label>
           <input
-            onChange={(e) => handleFileUpload(e)}
+            onChange={handleFileUpload}
             type="file"
             name="imageUrl"
-          ></input>
+          />
+          {imagePreviewUrl && (
+            <div>
+              <img src={imagePreviewUrl} alt="Image Preview" width="200" />
+            </div>
+          )}
           <label>Description</label>
           <input
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             type="text"
             name="description"
             value={photo.description}
-          ></input>
+          />
           <label>Tags</label>
           <input
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             type="text"
             name="tags"
             value={photo.tags}
-          ></input>
-
+          />
           <button onClick={handleSubmit} type="button">
             Submit Photo
           </button>
