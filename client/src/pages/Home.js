@@ -1,7 +1,11 @@
 import React from "react";
 import { get } from "../authService/authService";
 // import AppIcon from "../ApparaazziIcon.png";
+// <<<<<<< master
+// import AppIcon from "../aperature_logo_red.jpg";
+// =======
 import AppIcon from "../ApparaazziIcon_v2.jpg";
+
 
 const Home = () => {
   React.useEffect(() => {
@@ -19,6 +23,7 @@ const Home = () => {
   return (
     <div className="homeLanding">
       <div className="homeContainer">
+
 
         <div className="searchInfo">
           <div>
@@ -43,6 +48,7 @@ const Home = () => {
         <h1 className="homeText">Welcome to</h1>
         <img className="homeIcon" src={AppIcon} alt="apparazziIcon" />
         <h2 className="homeText">Where anyone can be a Paparazzi!</h2>
+
       </div>
     </div>
   );
